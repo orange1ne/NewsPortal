@@ -55,7 +55,7 @@ Comment.objects.create(post_id=3, user_id=1, text = """Lovely article!""")
 
 ### Корректируем рейтинг ###
 Post.objects.all()
-first = Post.objects.all().first()
+first = Post.objects.all()[0]
 first.like()
 second = Post.objects.all()[1]
 second.like()
@@ -79,6 +79,9 @@ d.like()
 Author.objects.all()
 a = Author.objects.all()[0]
 a.update_rating()
+b = Author.objects.all()[1]
+b.update_rating()
+
 
 ### Выводим имя и рейтинг лучшего пользователя ###
 Author.objects.all().order_by('-rating').values('name', 'rating')[0]
